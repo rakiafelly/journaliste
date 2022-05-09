@@ -1,0 +1,25 @@
+<div class="card">
+    <h4 class="card-header">Registre</h4>
+    <div class="card-body">
+        <form  *ngIf="registreForm" [formGroup]="registreForm">
+            <div class="form-group">
+                <label for="firstname">Firstname</label>
+                <input type="text" formControlName="firstname" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label for="lastname">Lastname</label>
+                <input type="text" formControlName="lastname" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label for="username">Userstname</label>
+                <input type="text" formControlName="username" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" formControlName="password" class="form-control"/>
+            </div>
+            <div class="form-group">
+                <button  class="btn btn-primary" [routerLink]="['/login'] ">Registre </button>
+            </div>
+        </form>
+            

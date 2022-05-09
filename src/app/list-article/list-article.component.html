@@ -1,0 +1,27 @@
+<div class="row">
+    <table class="table table-hover-striped table-responsive">
+        <thead>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Title</th>
+                <th scope="col">contenu</th>
+                <th scope="col">Author</th>
+                <th scope="col">Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let article of articles" >
+                <th>{{article.id}} </th>
+                <td>{{article.Title}} </td>
+                <td>{{article.contenu}} </td>
+                <td>{{article.Author}} </td>
+                <td>{{article.Date}} </td>
+                <td>
+                    <button class="btn btn-danger" (click)="delete(article.id)">Delete</button>
+                    <button class="btn btn-danger" [routerLink]="['/update',article.id]">update</button>
+
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
