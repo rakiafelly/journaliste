@@ -11,9 +11,9 @@ import { ArticleService } from '../article.service';
 export class UpdateComponent implements OnInit {
   articleForm?: FormGroup;
   id: any;
+  submitted = false;
 
-
-  constructor(private articleService: ArticleService,private router:Router ,private activateRoute: ActivatedRoute) { }
+  constructor(private articleService: ArticleService, private router: Router, private activateRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.getCurrentArticle();
@@ -34,11 +34,15 @@ export class UpdateComponent implements OnInit {
   }
 
   update() {
+    this.submitted = true
+    if (this.articleForm?.invalid) {
+      return;
+    }
     this.articleService.updateArticle(this.id, this.articleForm?.value)
-    .subscribe((response: any) => {
-      // console.log(response);
-      this.articleForm?.patchValue(response);
-    }, (error: any) => { console.log(error) });
-    this.router.navigateByUrl('/list')
+      .subscribe((response: any) => {
+        // console.log(response);
+        this.router.navigateByUrl('/list')
+      
+      }, (error: any) => { console.log(error) });
   }
 }

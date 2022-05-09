@@ -14,5 +14,14 @@
       "Date": "",
       "id": 6
     }
+  ],
+  "users": [
+    {
+      "firstname": "rakia",
+      "lastname": "felly",
+      "username": "cvb",
+      "password": "xcv",
+      "id": 1
+    }
   ]
 }
