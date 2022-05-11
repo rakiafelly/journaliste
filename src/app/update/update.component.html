@@ -1,19 +1,36 @@
 <form  *ngIf="articleForm" [formGroup]="articleForm" (ngSubmit)="update()" >
     <div class="form-group">
         <label for="Title">Title</label>
-        <input type="text" formControlName="Title" class="form-control" />
+        <input type="text" formControlName="Title" class="form-control" [ngClass]="{'is-valid':
+      submitted && !articleForm.get('Title')?.errors,'is-invalid': submitted && articleForm.get('Title')?.errors}"  />
+    </div>
+    <div class="invalid-feedback" *ngIf=" submitted && articleForm.get('Title')?.hasError('required')"  >
+        Title is required
     </div>
     <div class="form-group">
         <label for="contenu">Contenu</label>
-        <input type="contenu" formControlName="contenu" class="form-control"/>
+        <input type="contenu" formControlName="contenu" class="form-control"  [ngClass]="{'is-valid':
+        submitted && !articleForm.get('contenu')?.errors,'is-invalid': submitted && articleForm.get('contenu')?.errors}"  />
+    </div>
+    <div class="invalid-feedback" *ngIf=" submitted && articleForm.get('contenu')?.hasError('required')">
+        Contenu is required
     </div>
     <div class="form-group">
         <label for="Author">Author</label>
-        <input type="text" formControlName="Author" class="form-control" />
+        <input type="text" formControlName="Author" class="form-control"  [ngClass]="{'is-valid':
+        submitted && !articleForm.get('Author')?.errors,'is-invalid': submitted && articleForm.get('Author')?.errors}"  />
+    </div>
+    <div class="invalid-feedback" *ngIf=" submitted && articleForm.get('Author')?.hasError('required')">
+        Author is required
     </div>
     <div class="form-group">
         <label for="Date">Date</label>
-        <input type="date" formControlName="Date" class="form-control"/>
+        <input type="date" formControlName="Date" class="form-control"
+        [ngClass]="{'is-valid': submitted &&
+        !articleForm.get('Date')?.errors,'is-invalid': submitted && articleForm.get('Date')?.errors}" />
+    </div>
+    <div class="invalid-feedback" *ngIf=" submitted && articleForm.get('Date')?.hasError('required')">
+        Date is required
     </div>
     <button type="submit" class="btn btn-success"  >update</button>
 

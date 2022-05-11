@@ -30,6 +30,7 @@ export class LoginComponent implements OnInit {
         console.log(response);
         if (response.length > 0) {
           this.router.navigateByUrl('/list')
+          localStorage.setItem('AuthUser',JSON.stringify(response[0]))
 
         }
         else{

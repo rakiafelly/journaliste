@@ -14,7 +14,7 @@ export class AuthService {
 
   login(username: any, password: any) {
     return this.http.get(`http://localhost:3000/users?username=${username}&password=${password}`)
-
-
   }
+
+  
 }

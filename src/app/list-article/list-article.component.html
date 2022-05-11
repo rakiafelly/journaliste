@@ -1,16 +1,23 @@
+
+<div class="row">
+    <div class=" offset-6 col-6 my-5">
+        <input class="form-control" type="text" [(ngModel)]="searchText" >
+    </div>
+</div>
 <div class="row">
     <table class="table table-hover-striped table-responsive">
         <thead>
             <tr>
                 <th scope="col">ID</th>
                 <th scope="col">Title</th>
-                <th scope="col">contenu</th>
+                <th scope="col">Contenu</th>
                 <th scope="col">Author</th>
                 <th scope="col">Date</th>
+                <th scope="col">Actions</th>
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let article of articles" >
+            <tr *ngFor="let article of articles | search:searchText" >
                 <th>{{article.id}} </th>
                 <td>{{article.Title}} </td>
                 <td>{{article.contenu}} </td>
@@ -18,7 +25,7 @@
                 <td>{{article.Date}} </td>
                 <td>
                     <button class="btn btn-danger" (click)="delete(article.id)">Delete</button>
-                    <button class="btn btn-danger" [routerLink]="['/update',article.id]">update</button>
+                    <button class="btn btn-info text-white "  [routerLink]="['/update',article.id]">update</button>
 
                 </td>
             </tr>

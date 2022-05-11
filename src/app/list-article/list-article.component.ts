@@ -8,6 +8,7 @@ import { ArticleService } from '../article.service';
 })
 export class ListArticleComponent implements OnInit {
 articles:any
+searchText:any;
   constructor(private articleService:ArticleService) { }
 
   ngOnInit(): void {
